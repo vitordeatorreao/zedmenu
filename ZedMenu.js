@@ -100,8 +100,6 @@
     };
 
     Window_MenuStatus.prototype.windowHeight = function() {
-        var h1 = this.fittingHeight(1);
-        var h2 = this.fittingHeight(2);
         return Graphics.boxHeight - SceneManager._scene._commandWindow.height;
     };
 
@@ -150,6 +148,9 @@
         this.drawActorHp(actor, x, y + lineHeight * (faceSpace + 2), width);
         this.drawActorMp(actor, x, y + lineHeight * (faceSpace + 3), width);
         this.drawActorIcons(actor, x, y + lineHeight * (faceSpace + 4), width);
+        this.changeTextColor(this.systemColor());
+
+        //this.drawText(TextManager.param(paramId), x, y + lineHeight * (faceSpace + 5), 120);
     };
 
 
