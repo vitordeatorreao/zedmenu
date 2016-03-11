@@ -1,0 +1,11 @@
+/audio/
+/data/
+/fonts/
+/icon/
+/img/
+/movies/
+/save/
+*.rpgproject
+*.html
+/js/*
+!/js/plugins/
