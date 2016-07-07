@@ -4,7 +4,7 @@
 
 /*:
  * @plugindesc Zed-like menu layout.
- * @author Babakin
+ * @author vdat
  *
  * @param Unknown face name
  * @desc The name of the file containing your unknown face.
@@ -23,6 +23,14 @@
 	var unknownFaceName = parameters['Unknown face name'];
 	var unknownFaceIndex = Number(parameters['Unknown face index'] || 0);
 
+    // Require some component plugins
+    PluginManager.RequirePlugin('NoGoldOnMenu', {});
+    PluginManager.RequirePlugin('UnknownsWindowStatus', {
+        'Unknown face name' : unknownFaceName,
+        'Unknown face index' : unknownFaceIndex,
+        'Minimum number of slots' : 'auto'
+    });
+
 	// Changes the way the Menu Screen is created
 	var _Scene_Menu_create = Scene_Menu.prototype.create;
     Scene_Menu.prototype.create = function() {
@@ -30,10 +38,6 @@
         // The status screen will be displayed just bellow the command screen
         this._statusWindow.x = 0;
         this._statusWindow.y = this._commandWindow.height;
-    };
-    // Removes the Gold Window from the main menu.
-    Scene_Menu.prototype.createGoldWindow = function () {
-    	return;
     };
     // Changes the command window
     Scene_Menu.prototype.createCommandWindow = function() {
@@ -85,15 +89,6 @@
     Window_MenuCommand.prototype.addGameEndCommand = function() {
         return;
     };
-
-    var _Window_MenuStatus_drawAllItems = Window_MenuStatus.prototype.drawAllItems;
-    Window_MenuStatus.prototype.drawAllItems = function() {
-    	_Window_MenuStatus_drawAllItems.call(this);
-		var unknownIndex = this.maxItems();
-		for (; unknownIndex < 4; unknownIndex++) {
-			this.drawItemImage(unknownIndex);
-		}
-	};
 
     Window_MenuStatus.prototype.windowWidth = function() {
         return Graphics.boxWidth;

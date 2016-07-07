@@ -4,7 +4,7 @@
 
 /*:
  * @plugindesc This plugin adds a function to help import other plugins.
- * @author Zed
+ * @author vdat
  *
  * @help This plugin adds a function called Require into the PluginManager. 
  * This function provides a facility for importing other plugins into your own.
@@ -22,7 +22,6 @@
 			relativePath = "";
 		else if (relativePath.charAt(relativePath.length-1) !== "/")
 			relativePath = relativePath + '/';
-		console.log(relativePath + pluginName + '.js');
 		PluginManager._parameters[pluginName.toLowerCase()] = pluginParameters;
 		PluginManager.loadScript(relativePath + pluginName + '.js');
 		PluginManager._scripts.push(pluginName);

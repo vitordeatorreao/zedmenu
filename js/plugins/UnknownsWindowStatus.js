@@ -4,7 +4,7 @@
 
 /*:
  * @plugindesc This plugin draws an unknown actor face in the Status Window.
- * @author Zed
+ * @author vdat
  *
  * @param Unknown face name
  * @desc The name of the file containing your unknown face.

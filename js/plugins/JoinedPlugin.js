@@ -3,8 +3,8 @@
 //=============================================================================
 
 /*:
- * @plugindesc This plugin is a test for RequirePlugins.js
- * @author Zed
+ * @plugindesc This plugin is an example of the RequirePlugins.js
+ * @author vdat
  *
  * @help This plugin removes the gold window that, by default, appears on the 
  * bottom left of the Menu Scene. It also adds unknown faces to the status 
